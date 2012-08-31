@@ -1,0 +1,4 @@
+first_freelance:
+  email: "example@mail.com"
+  password: "teste#01"
+  password_confirmation: "teste#01"
