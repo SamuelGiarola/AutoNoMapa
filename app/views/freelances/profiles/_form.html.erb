@@ -1,0 +1,44 @@
+<%=render "images" %>
+
+<%=simple_form_for @profile, url: :freelances_profiles, html: {:multipart => true} do |f| %>
+
+ <div id="first_step">
+  <div class="row-fluid border-bottom">
+      <%=f.input :name %>
+      <%=f.association :categories,:as => :check_boxes %>
+      <%=f.input :description, :as => :text, :input_html => {:rows => 3}%>
+  </div>
+  <br/><input id="step_one_forward" type="button" onclick="OpenSel(2);" value="Continuar" />
+ </div>
+
+ <div id="secound_step">
+  <div class="row-fluid border-bottom">
+      <%=f.input :experience, :as => :text, :input_html => { :rows => 3 } %>
+      <%=f.input :courses, :as => :text, :input_html => {:rows =>3} %>
+  </div>
+  <br/><input type="button" onclick="OpenSel(1);" value="Voltar" />
+  <input type="button" onclick="OpenSel(3);" value="Continuar" />
+ </div>
+
+ <div id="third_step">
+  <div class="row-fluid border-bottom">
+      <%=f.simple_fields_for :address do |address_form| %>
+        <%= render 'address_form', :f => address_form %>
+      <%end%>
+      <%=f.input :phone %>
+      <%=f.input :cell_phone %>
+  </div>
+  <br/><input type="button" onclick="OpenSel(2);" value="Voltar" />
+  <input type="button" onclick="OpenSel(4);" value="Continuar" />
+ </div>
+
+ <div id="fourth_step">
+  <div class="row-fluid border-bottom">
+    <%=f.input :avatar, :as => :file %>
+    <br/>
+  </div>
+  <br/><input type="button" onclick="OpenSel(3);" value="Voltar" />
+  <%=f.submit %><br/>
+ </div>
+
+ <%end%>

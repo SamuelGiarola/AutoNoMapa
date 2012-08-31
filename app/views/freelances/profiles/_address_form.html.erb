@@ -1,0 +1,5 @@
+<%=f.input :street %>
+<%=f.input :number %>
+<%=f.input :neighborhood %>
+<%=f.association :city, :collection => City.all(:order => 'name'), :prompt => "Escolha uma Cidade" %>
+<%=f.association :city, :collection => State.all(:order => 'name'), :prompt => "Escolha um Estado" %>
